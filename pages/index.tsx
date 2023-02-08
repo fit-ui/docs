@@ -1,23 +1,7 @@
 import Head from 'next/head';
-import { useState } from 'react';
-import Login from './login';
+import LoginForm from '../components/LoginForm';
 
 export default function Home() {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-
-	function inputHandler(e: React.ChangeEvent<HTMLInputElement>) {
-		const type = e.target.name;
-		switch (type) {
-			case 'email':
-				setEmail(e.target.value);
-				break;
-			case 'password':
-				setPassword(e.target.value);
-				break;
-		}
-	}
-
 	return (
 		<>
 			<Head>
@@ -26,10 +10,7 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				{/* <link rel='icon' href='/favicon.ico' /> */}
 			</Head>
-			<header></header>
-			<main>
-				<Login inputHandler={inputHandler} email={email} password={password} />
-			</main>
+			<LoginForm />
 		</>
 	);
 }
